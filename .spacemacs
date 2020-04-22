@@ -41,7 +41,7 @@ This function should only modify configuration layer settings."
      html
      yaml
      javascript
-     python
+     (python :variables python-test-runner 'pytest python-backend 'anaconda)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -60,7 +60,7 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      syntax-checking
      ;; version-control
-     clojure
+     (clojure :variables clojure-enable-linters '(clj-kondo))
      add-node-modules-path
      editorconfig
      )
