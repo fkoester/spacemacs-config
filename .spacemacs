@@ -414,6 +414,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
+
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -427,12 +429,28 @@ you should place your code here."
 
   (setq clojure-align-forms-automatically t)
 
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+
   (defun clojurescript-mode-before-save-hook ()
     (interactive)
     (when (eq major-mode 'clojurescript-mode)
       (indent-region (point-min) (point-max))))
 
   (add-hook 'before-save-hook #'clojurescript-mode-before-save-hook)
+
+
+  (defun my/use-eslint-from-node-modules ()
+    (let* ((root (locate-dominating-file
+                  (or (buffer-file-name) default-directory)
+                  "node_modules"))
+          (eslint
+            (and root
+                (expand-file-name "node_modules/.bin/eslint"
+                                  root))))
+      (when (and eslint (file-executable-p eslint))
+      (setq-local flycheck-javascript-eslint-executable eslint))))
+  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
