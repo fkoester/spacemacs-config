@@ -47,23 +47,21 @@ This function should only modify configuration layer settings."
      helm
      html
      javascript
-     latex
+     ;; latex
      ;; lsp
      markdown
      multiple-cursors
      nginx
-     php
      react
      sql
      systemd
      yaml
-     org
+     ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     treemacs
      ;; version-control
      treemacs)
 
