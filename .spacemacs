@@ -562,7 +562,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-)
+  (setq evil-want-keybinding nil) 
+  )
 
 
 (defun dotspacemacs/user-load ()
@@ -583,7 +584,6 @@ before packages are loaded."
   ;; Turn off js2 mode errors & warnings (we lean on eslint/standard)
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
-  (setq evil-want-keybinding nil) 
   )
 
 
